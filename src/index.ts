@@ -26,7 +26,7 @@ async function checkWalletForVanity(wallet: ethers.Wallet) {
 }
 
 async function checkWalletForMoney(wallet: ethers.Wallet) {
-    let provider = new ethers.providers.JsonRpcProvider('https://eth-mainnet.g.alchemy.com/v2/lfMGm9rvDwO-uiLShA8ef4Xpl3_xDwI5');
+    let provider = new ethers.providers.JsonRpcProvider(`https://eth-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`);
     let account = wallet.connect(provider);
     const balance = await account.getBalance();
     if (balance.toString() !== '0') {
